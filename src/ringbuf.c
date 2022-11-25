@@ -192,7 +192,7 @@ retry:
  * => On success: returns the offset at which the space is available.
  * => On failure: returns -1.
  */
-ssize_t
+int64_t
 ringbuf_acquire(ringbuf_t *rbuf, ringbuf_worker_t *w, size_t len)
 {
 	ringbuf_off_t seen, next, target;
@@ -287,7 +287,7 @@ ringbuf_acquire(ringbuf_t *rbuf, ringbuf_worker_t *w, size_t len)
 		    (target & ~WRAP_LOCK_BIT), memory_order_release);
 	}
 	ASSERT((target & RBUF_OFF_MASK) <= rbuf->space);
-	return (ssize_t)next;
+	return (int64_t)next;
 }
 
 /*
