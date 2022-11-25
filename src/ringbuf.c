@@ -65,7 +65,7 @@
 #include <limits.h>
 #include <errno.h>
 
-#include "ringbuf.h"
+#include "../inc/rmind/ringbuf.h"
 #include "utils.h"
 
 #define	RBUF_OFF_MASK	(0x00000000ffffffffUL)
